@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QuickFill</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"/><path d="M9 17l5 5 9-11"/></svg>
+        <span>QuickFill</span>
+      </div>
+      <div id="top-actions"></div>
+    </header>
+
+    <main>
+      <!-- DETAILS -->
+      <section id="panel-details" data-panel="details">
+        <div class="toolbar" id="toolbar-view">
+          <input type="search" id="search" placeholder="Search your details" aria-label="Search your details">
+          <button id="btn-edit" class="btn">Edit</button>
+        </div>
+        <div class="toolbar" id="toolbar-edit" hidden>
+          <button id="btn-add" class="btn">+ Add field</button>
+          <span class="spacer"></span>
+          <button id="btn-cancel" class="btn">Cancel</button>
+          <button id="btn-save" class="btn primary">Save</button>
+        </div>
+        <p class="hint" id="hint">Click a row to copy it. To fill a form, click the field on the page, open QuickFill, then press Insert.</p>
+        <ul id="list" class="card-list"></ul>
+      </section>
+
+      <!-- SCHEDULE -->
+      <section id="panel-schedule" data-panel="schedule" hidden>
+        <div id="schedule-empty" class="empty">
+          <p>No schedule saved yet.<br>Upload a screenshot or photo of your timetable.</p>
+          <label class="btn primary file-btn">Upload image
+            <input type="file" id="file" accept="image/*" hidden>
+          </label>
+        </div>
+        <div id="schedule-view" hidden>
+          <img id="schedule-img" alt="My weekly class schedule" title="Click to open full size">
+          <div class="toolbar">
+            <button id="btn-full" class="btn primary">Open full size</button>
+            <label class="btn file-btn">Replace
+              <input type="file" id="file2" accept="image/*" hidden>
+            </label>
+            <span class="spacer"></span>
+            <button id="btn-remove" class="btn danger">Remove</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TODO -->
+      <section id="panel-todo" data-panel="todo" hidden>
+        <div class="toolbar">
+          <input type="text" id="todo-input" placeholder="What needs doing?" aria-label="New todo" maxlength="200">
+          <button id="todo-add" class="btn primary">Add</button>
+        </div>
+        <ul id="todo-list" class="card-list"></ul>
+        <div class="toolbar footer-row" id="todo-footer" hidden>
+          <span id="todo-count" class="hint"></span>
+          <span class="spacer"></span>
+          <button id="todo-clear" class="btn">Clear done</button>
+        </div>
+      </section>
+
+      <!-- NOTES -->
+      <section id="panel-notes" data-panel="notes" hidden>
+        <textarea id="note" class="note" placeholder="Write anything: reminders, links, form answers…" aria-label="Notes"></textarea>
+        <div class="toolbar footer-row">
+          <span id="note-status" class="hint">&nbsp;</span>
+          <span class="spacer"></span>
+          <button id="note-save" class="btn primary">Save</button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bar" role="tablist" aria-label="Sections">
+      <button class="tab active" role="tab" data-tab="details" aria-selected="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <span>Details</span>
+      </button>
+      <button class="tab" role="tab" data-tab="schedule" aria-selected="false">
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <span>Schedule</span>
+      </button>
+      <button class="tab" role="tab" data-tab="todo" aria-selected="false">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12.5l3 3 5-6"/></svg>
+        <span>Todo</span>
+      </button>
+      <button class="tab" role="tab" data-tab="notes" aria-selected="false">
+        <svg viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5z"/><path d="M9 12h6M9 16h6"/></svg>
+        <span>Notes</span>
+      </button>
+    </nav>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
