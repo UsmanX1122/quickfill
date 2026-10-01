@@ -1,5 +1,7 @@
 # QuickFill
+![QuickFill demo](quickfill-demo.gif)
 
+A small Chrome extension that keeps the things you keep retyping one click away.
 A Chrome extension that keeps the things you keep retyping one click away.
 
 - **Details**: store your name, address, phone, email and any custom fields. Click to copy, or press **Insert** to fill the form field you selected.
